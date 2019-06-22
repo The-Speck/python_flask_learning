@@ -39,6 +39,12 @@ $ conda env remove -n yourenvname -all
 #### 8. List of conda env
 $ conda env list
 
-#### 8. Export libraries
+#### 9. Export libraries
 Export libraries to a text file named requirements.txt
 $ conda list --export > requirements.txt
+
+#### 10. Install from requirements.txt
+$ conda install --yes --file requirements.txt
+
+Note: flask-restful must be install using:
+$ conda install -c conda-forge flask-restful
