@@ -12,14 +12,14 @@
       "env": {
         "FLASK_APP": "app.py",
         "FLASK_ENV": "development",
-        "FLASK_DEBUG": "1"
+        "FLASK_DEBUG": "0" // 0 will allow for vscode debugging
       },
       "args": [
         "run",
         "--no-debugger",
-        // "--no-reload"
+        "--no-reload",
         "--port",
-        "9003"   
+        "9003"
       ],
       "jinja": true
     }

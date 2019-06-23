@@ -2,22 +2,31 @@
 # $ conda create --name <env> --file <this file>
 # platform: win-64
 aniso8601=7.0.0=pypi_0
+asn1crypto=0.24.0=py37_0
 astroid=2.2.5=py37_0
-ca-certificates=2019.6.16=hecc5488_0
+autopep8=1.4.4=py_0
+ca-certificates=2019.5.15=0
 certifi=2019.6.16=py37_0
+cffi=1.12.3=py37h7a1dbc1_0
 click=7.0=py37_0
 colorama=0.4.1=py37_0
+cryptography=2.7=py37h7a1dbc1_0
 flask=1.0.3=py37_0
+flask-jwt-simple=0.0.3=py_0
 flask-restful=0.3.7=pypi_0
+idna=2.8=py37_0
 isort=4.3.20=py37_0
 itsdangerous=1.1.0=py37_0
 jinja2=2.10.1=py37_0
 lazy-object-proxy=1.4.1=py37he774522_0
 markupsafe=1.1.1=py37he774522_0
 mccabe=0.6.1=py37_1
-openssl=1.1.1b=hfa6e2cd_2
+openssl=1.1.1c=he774522_1
 pip=19.1.1=py37_0
+pycodestyle=2.5.0=py37_0
+pycparser=2.19=py37_0
 pycrypto=2.6.1=py37hfa6e2cd_1002
+pyjwt=1.7.1=py37_0
 pylint=2.3.1=py37_0
 python=3.7.3=h8c8aaf0_1
 python-dateutil=2.8.0=py_0
