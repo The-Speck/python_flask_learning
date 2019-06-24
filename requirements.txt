@@ -5,14 +5,14 @@ aniso8601=7.0.0=pypi_0
 asn1crypto=0.24.0=py37_0
 astroid=2.2.5=py37_0
 autopep8=1.4.4=py_0
-ca-certificates=2019.5.15=0
+ca-certificates=2019.6.16=hecc5488_0
 certifi=2019.6.16=py37_0
 cffi=1.12.3=py37h7a1dbc1_0
 click=7.0=py37_0
 colorama=0.4.1=py37_0
-cryptography=2.7=py37h7a1dbc1_0
+cryptography=2.7=py37hb32ad35_0
 flask=1.0.3=py37_0
-flask-jwt-simple=0.0.3=py_0
+flask-jwt-extended=3.18.2=py_0
 flask-restful=0.3.7=pypi_0
 idna=2.8=py37_0
 isort=4.3.20=py37_0
@@ -21,7 +21,7 @@ jinja2=2.10.1=py37_0
 lazy-object-proxy=1.4.1=py37he774522_0
 markupsafe=1.1.1=py37he774522_0
 mccabe=0.6.1=py37_1
-openssl=1.1.1c=he774522_1
+openssl=1.1.1b=hfa6e2cd_2
 pip=19.1.1=py37_0
 pycodestyle=2.5.0=py37_0
 pycparser=2.19=py37_0
