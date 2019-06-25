@@ -4,6 +4,7 @@ from flask_jwt_extended import JWTManager, jwt_required, create_access_token
 import uuid as _
 
 from security import authenticate, identity
+from user import UserRegister
 
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = str(_.uuid4())
@@ -96,8 +97,8 @@ class Auth(Resource):
 api.add_resource(Item, '/item/<int:id>')
 api.add_resource(ItemList, '/items')
 api.add_resource(Auth, '/login')
+api.add_resource(UserRegister, '/register')
 
-print('Random test text3')
 print('__name__ = ' + __name__)
 if __name__ == '__main__':
   app.run()
