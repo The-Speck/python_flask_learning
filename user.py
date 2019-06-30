@@ -1,5 +1,7 @@
 import sqlite3
-from flask_restful import Resource
+from flask_restful import Resource, reqparse
+from db import handle_connection
+from util import message
 
 class User:
   def __init__(self, _id, username, password):
@@ -8,10 +10,8 @@ class User:
     self.password = password
 
   @classmethod
-  def find_by_username(cls, username):
-    connection = sqlite3.connect('python-flask.db')
-    cursor =  connection.cursor()
-
+  @handle_connection
+  def find_by_username(cls, username, cursor=None, connection=None):
     query = 'SELECT * FROM users WHERE username=?'
     result = cursor.execute(query, (username,))
     row = result.fetchone()
@@ -20,14 +20,11 @@ class User:
     else:
       user = None
 
-    connection.close()
     return user
 
   @classmethod
-  def find_by_id(cls, _id):
-    connection = sqlite3.connect('python-flask.db')
-    cursor = connection.cursor()
-
+  @handle_connection
+  def find_by_id(cls, _id, cursor=None, connection=None):
     query = 'SELECT * FROM users WHERE id=?'
     result = cursor.execute(query, (_id,))
     row = result.fetchone()
@@ -36,13 +33,35 @@ class User:
     else:
       user = None
 
-    connection.close()
     return user
 
 class UserRegister(Resource):
-  def post(self):
-    connection = sqlite3.connect('python-flask.db')
-    cursor = connection.cursor()
+  parser = reqparse.RequestParser()
+  parser.add_argument(
+      'username',
+      type=str,
+      required=True,
+      help='username cannot be blank!'
+  )
+  parser.add_argument(
+      'password',
+      type=str,
+      required=True,
+      help='password cannot be blank!'
+  )
 
-    connection.close()
-    return None
+  @classmethod
+  @handle_connection
+  def post(cls, cursor, connection):
+    data = UserRegister.parser.parse_args()
+
+    if User.find_by_username(data['username']):
+      return message('Username already exists'), 422
+
+    query = "INSERT INTO users ('username', 'password') VALUES (?, ?)"
+    cursor.execute(query, (data['username'], data['password']))
+    connection.commit()
+    id = cursor.lastrowid
+    user = User.find_by_id(id)
+
+    return user.__dict__, 201

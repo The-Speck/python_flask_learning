@@ -5,6 +5,7 @@ import uuid as _
 
 from security import authenticate, identity
 from user import UserRegister
+from util import message
 
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = str(_.uuid4())
@@ -18,9 +19,6 @@ items = [
     "price": 123.12
   }
 ]
-
-def message(msg):
-  return {'message': msg}
 
 class Item(Resource):
   parser = reqparse.RequestParser()
